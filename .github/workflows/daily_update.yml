@@ -4,18 +4,24 @@ on:
   schedule:
     # UTC 时间 17:00 运行（对应越南/北京时间 00:00 凌晨）
     - cron: '0 17 * * *'
-  workflow_dispatch: # 支持在 GitHub 网页后台手动点击 Run workflow 触发
+  workflow_dispatch:
+
+# 关键设置：赋予 GitHub Actions 提交代码回仓库的写权限
+permissions:
+  contents: write
 
 jobs:
   build-and-update:
     runs-on: ubuntu-latest
 
     steps:
+    # 升级至 v4 解决 Node.js 警告
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
+    # 升级至 v5 解决 Node.js 警告
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -24,14 +30,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 步骤 1：先运行 AI 扩充脚本，调用 Gemini API 生成批量数据并追加到 data.json
+    # 步骤 1：运行 AI 扩充脚本
     - name: Run AI Dataset Builder
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         SITE_TYPE: ${{ vars.SITE_TYPE }}
       run: python build_dataset.py
 
-    # 步骤 2：运行 SSG 编译脚本，把 data.json 渲染成多页 HTML 和 Sitemap
+    # 步骤 2：运行 SSG 编译脚本
     - name: Run SSG Compile Script
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -39,11 +45,22 @@ jobs:
         SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
       run: python script.py
 
-    # 步骤 3：将新生成的 data.json、detail/ 页面目录和 sitemap.xml 推送到仓库
+    # 步骤 3：安全的 Git 提交逻辑（防 exit code 128）
     - name: Commit and Push changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        
+        # 确保 detail 目录存在
+        mkdir -p detail
+        
+        # 暂存所有新增/修改的文件
         git add data.json index.html sitemap.xml detail/
-        git diff-index --quiet HEAD || git commit -m "Auto expand AI dataset & SSG compile multi-pages"
-        git push
+        
+        # 检查是否有代码变动，如果有变动才执行 commit 和 push，防止提交空白引发 128 错误
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto expand AI dataset & SSG compile multi-pages"
+          git push
+        fi
