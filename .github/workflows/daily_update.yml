@@ -4,7 +4,7 @@ on:
   schedule:
     # UTC 时间 17:00 运行（对应越南/北京时间 00:00 凌晨）
     - cron: '0 17 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # 支持在 GitHub 网页后台手动点击 Run workflow 触发
 
 jobs:
   build-and-update:
@@ -24,18 +24,26 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Auto-Update Script
+    # 步骤 1：先运行 AI 扩充脚本，调用 Gemini API 生成批量数据并追加到 data.json
+    - name: Run AI Dataset Builder
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        SITE_TYPE: ${{ secrets.SITE_TYPE }}
-        SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+        SITE_TYPE: ${{ vars.SITE_TYPE }}
+      run: python build_dataset.py
+
+    # 步骤 2：运行 SSG 编译脚本，把 data.json 渲染成多页 HTML 和 Sitemap
+    - name: Run SSG Compile Script
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        SITE_TYPE: ${{ vars.SITE_TYPE }}
+        SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
       run: python script.py
 
+    # 步骤 3：将新生成的 data.json、detail/ 页面目录和 sitemap.xml 推送到仓库
     - name: Commit and Push changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add data.json index.html sitemap.xml detail/
-        git diff-index --quiet HEAD || git commit -m "SSG Auto compile multi-pages & update sitemap"
+        git diff-index --quiet HEAD || git commit -m "Auto expand AI dataset & SSG compile multi-pages"
         git push
-
