@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tử Vi & Sổ Mơ 247 - Tra Cứu Điềm Báo & Con Số May Mắn 2026</title>
+    <meta name="description" content="Tra cứu sổ mơ toàn tập, giải mã điềm báo giấc mơ chính xác nhất và xem tử vi 12 cung hoàng đạo hôm nay.">
+    <meta name="keywords" content="sổ mơ, giải mã giấc mơ, tử vi hàng ngày, phong thủy, con số may mắn">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sổ Mơ & Tử Vi Việt Nam",
+      "description": "Giải mã giấc mơ và xem tử vi hàng ngày chuẩn xác."
+    }
+    </script>
+
+    <style>
+        :root { --primary: #4a154b; --secondary: #f4c430; --bg: #f9f6fa; --card-bg: #ffffff; --text: #2d3436; }
+        /* body.theme-xingzuo { --primary: #ff6b81; --secondary: #ffeaa7; --bg: #f4f5f9; --card-bg: #ffffff; --text: #2f3542; } */
+        /* body.theme-fengshui { --primary: #b33939; --secondary: #f7f1e3; --bg: #f7f1e3; --card-bg: #ffffff; --text: #222f3e; } */
+
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); margin: 0; color: var(--text); }
+        header { background: var(--primary); color: var(--secondary); padding: 18px 15px; text-align: center; border-bottom: 3px solid var(--secondary); }
+        header h1 { margin: 0; font-size: 1.3rem; letter-spacing: 0.5px; }
+        header p { margin: 4px 0 0 0; font-size: 0.8rem; opacity: 0.9; }
+        .container { max-width: 550px; margin: 0 auto; padding: 15px; }
+
+        .search-box { display: flex; margin-bottom: 15px; background: #fff; padding: 4px; border-radius: 30px; border: 2px solid var(--primary); }
+        .search-box input { flex: 1; border: none; padding: 10px 15px; outline: none; border-radius: 30px; font-size: 0.95rem; }
+        .search-box button { background: var(--primary); color: var(--secondary); border: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+
+        .ad-slot { background: #efe6f0; border: 1px dashed var(--primary); text-align: center; padding: 12px; margin: 15px 0; border-radius: 8px; font-size: 0.8rem; color: #666; }
+
+        .card { background: var(--card-bg); border-radius: 12px; padding: 15px; margin-bottom: 12px; border-left: 5px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
+        .card h2 { margin: 0 0 8px 0; color: var(--primary); font-size: 1.1rem; }
+        .card p { margin: 0 0 10px 0; font-size: 0.9rem; line-height: 1.5; color: #555; white-space: pre-line; }
+        .lucky-num { background: #fff8e1; color: #b78103; font-weight: bold; padding: 5px 12px; border-radius: 20px; display: inline-block; font-size: 0.85rem; border: 1px solid #ffe082; }
+
+        footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🔮 SỔ MƠ GIẢI MÃ & TỬ VI 247</h1>
+    <p>Tra cứu điềm báo, con số may mắn & tử vi hàng ngày</p>
+</header>
+
+<div class="container">
+    <div class="ad-slot">
+        <span>[ Quảng Cáo / AdSense Responsive Header Slot ]</span>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Nhập từ khóa giấc mơ, tử vi..." onkeyup="searchData()">
+        <button onclick="searchData()">TÌM</button>
+    </div>
+
+    <div id="contentList">Đang tải dữ liệu...</div>
+
+    <div class="ad-slot">
+        <span>[ Quảng Cáo / AdSense In-Article Slot ]</span>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Huyền Học Việt Nam. All rights reserved.</p>
+</footer>
+
+<script>
+    let allData = [];
+
+    fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+            allData = data;
+            render(allData);
+        })
+        .catch(err => {
+            document.getElementById('contentList').innerHTML = '<p style="text-align:center;">Lỗi tải dữ liệu.</p>';
+        });
+
+    function render(list) {
+        const container = document.getElementById('contentList');
+        if(list.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#999;">Không tìm thấy kết quả phù hợp.</p>';
+            return;
+        }
+        container.innerHTML = list.map(item => `
+            <article class="card">
+                <h2>${item.title}</h2>
+                <p>${item.meaning}</p>
+                <div class="lucky-num">🎲 Con số may mắn: ${item.numbers}</div>
+            </article>
+        `).join('');
+    }
+
+    function searchData() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allData.filter(item => 
+            item.title.toLowerCase().includes(query) || 
+            item.meaning.toLowerCase().includes(query)
+        );
+        render(filtered);
+    }
+</script>
+</body>
+</html>
