@@ -1,16 +1,163 @@
+
 [
-  {
-    "id": 1,
-    "title": "Mơ thấy rắn bò vào nhà (梦见蛇进屋)",
-    "category": "Giải mã giấc mơ",
-    "meaning": "Giấc mơ thấy rắn bò vào nhà là điềm báo may mắn về tài lộc. Công việc kinh doanh của bạn sắp tới sẽ gặp nhiều thuận lợi và có quý nhân giúp đỡ.",
-    "numbers": "32, 42, 72"
-  },
-  {
-    "id": 2,
-    "title": "Mơ thấy nhặt được tiền (梦见捡钱)",
-    "category": "Giải mã giấc mơ",
-    "meaning": "Mơ thấy nhặt được tiền báo hiệu lộc rơi trúng đầu trong thời gian tới. Bạn có thể nhận được một khoản tiền thưởng hoặc cơ hội đầu tư tốt.",
-    "numbers": "11, 68, 86"
-  }
+{
+"id": 1,
+"slug": "mo-thay-ran",
+"title": "Mơ thấy rắn",
+"category": "Giải mã giấc mơ",
+"meaning": "Chiêm bao thấy rắn thường liên quan đến tài lộc, sức khỏe và sự linh thiêng. Rắn cắn báo hiệu may mắn về tiền bạc, trong khi rắn bò vào nhà khuyên bạn nên cẩn trọng về gia đạo.",
+"numbers": "32, 42, 72"
+},
+{
+"id": 2,
+"slug": "mo-thay-nuoc",
+"title": "Mơ thấy nước",
+"category": "Giải mã giấc mơ",
+"meaning": "Nước tượng trưng cho tài chính và cảm xúc. Nước trong xanh mang lại điềm lành về sự nghiệp suôn sẻ, còn nước đục báo hiệu bạn cần quản lý cảm xúc tốt hơn.",
+"numbers": "22, 56, 88"
+},
+{
+"id": 3,
+"slug": "mo-thay-tien",
+"title": "Mơ thấy tiền",
+"category": "Giải mã giấc mơ",
+"meaning": "Mơ nhặt được tiền báo hiệu cơ hội may mắn bất ngờ. Mơ mất tiền nhắc nhở bạn nên cẩn trọng trong các khoản đầu tư và chi tiêu sắp tới.",
+"numbers": "11, 68, 79"
+},
+{
+"id": 4,
+"slug": "mo-thay-chay-nha",
+"title": "Mơ thấy cháy nhà",
+"category": "Giải mã giấc mơ",
+"meaning": "Ngọn lửa tượng trưng cho may mắn và sự bùng nổ tài lộc. Mơ thấy lửa cháy lớn mang điềm báo công danh sự nghiệp phát triển rực rỡ.",
+"numbers": "05, 43, 67"
+},
+{
+"id": 5,
+"slug": "mo-thay-cho-can",
+"title": "Mơ thấy chó cắn",
+"category": "Giải mã giấc mơ",
+"meaning": "Chó tượng trưng cho sự trung thành. Mơ thấy chó cắn nhắc nhở bạn nên cẩn trọng trong các mối quan hệ bạn bè hoặc đồng nghiệp xung quanh.",
+"numbers": "29, 93, 95"
+},
+{
+"id": 6,
+"slug": "mo-thay-ca",
+"title": "Mơ thấy cá",
+"category": "Giải mã giấc mơ",
+"meaning": "Cá bơi lội dưới nước tượng trưng cho sự giàu sang và tài lộc vượng phát. Mơ bắt được cá lớn báo hiệu chuẩn bị nhận tin vui về tài chính.",
+"numbers": "56, 79, 81"
+},
+{
+"id": 7,
+"slug": "mo-thay-nguoi-yeu-cu",
+"title": "Mơ thấy người yêu cũ",
+"category": "Giải mã giấc mơ",
+"meaning": "Giấc mơ này phản ánh cảm xúc chưa giải tỏa hoặc lời nhắc nhở bạn nên trân trọng những gì đang có ở hiện tại.",
+"numbers": "46, 74, 89"
+},
+{
+"id": 8,
+"slug": "mo-thay-bay",
+"title": "Mơ thấy mình biết bay",
+"category": "Giải mã giấc mơ",
+"meaning": "Tượng trưng cho khát vọng tự do và sự bứt phá. Bạn đang vượt qua các giới hạn bản thân để tiến tới thành công mới.",
+"numbers": "01, 25, 63"
+},
+{
+"id": 9,
+"slug": "mo-thay-rung-rang",
+"title": "Mơ thấy rụng răng",
+"category": "Giải mã giấc mơ",
+"meaning": "Thường phản ánh sự lo lắng về ngoại hình hoặc sức khỏe. Lời nhắc nhở bạn nên chăm sóc bản thân và nghỉ ngơi hợp lý hơn.",
+"numbers": "31, 52, 62"
+},
+{
+"id": 10,
+"slug": "mo-thay-dam-cuoi",
+"title": "Mơ thấy đám cưới",
+"category": "Giải mã giấc mơ",
+"meaning": "Điềm báo về những bước ngoặt mới trong cuộc sống, hứa hẹn sự hợp tác bền vững hoặc chuyển biến tích cực trong tình cảm.",
+"numbers": "07, 26, 90"
+},
+{
+"id": 11,
+"slug": "mo-thay-meo",
+"title": "Mơ thấy mèo",
+"category": "Giải mã giấc mơ",
+"meaning": "Mèo đại diện cho sự linh hoạt và giác quan thứ sáu. Mơ thấy mèo là lời khuyên nên tin vào bản năng của mình khi đưa ra quyết định.",
+"numbers": "14, 18, 58"
+},
+{
+"id": 12,
+"slug": "mo-thay-con-nit",
+"title": "Mơ thấy em bé",
+"category": "Giải mã giấc mơ",
+"meaning": "Em bé tượng trưng cho sự khởi đầu mới, niềm vui và sự ngây thơ. Bạn chuẩn bị đón nhận dự án mới hoặc tin vui trong gia đình.",
+"numbers": "09, 19, 84"
+},
+{
+"id": 13,
+"slug": "mo-thay-mua",
+"title": "Mơ thấy trời mưa",
+"category": "Giải mã giấc mơ",
+"meaning": "Cơn mưa giúp gột rửa điều cũ kỹ, báo hiệu những khó khăn sẽ sớm qua đi để nhường chỗ cho tài lộc tươi mới.",
+"numbers": "13, 82, 94"
+},
+{
+"id": 14,
+"slug": "mo-thay-xac-chet",
+"title": "Mơ thấy xác chết",
+"category": "Giải mã giấc mơ",
+"meaning": "Theo quan niệm dân gian, 'sinh dữ tử lành'. Mơ thấy xắc chết thường là điềm báo về tài lộc bùng nổ và may mắn bất ngờ.",
+"numbers": "04, 60, 52"
+},
+{
+"id": 15,
+"slug": "mo-thay-leo-nui",
+"title": "Mơ thấy leo núi",
+"category": "Giải mã giấc mơ",
+"meaning": "Bản lĩnh và sự kiên trì của bạn sắp được đền đáp. Khi lên tới đỉnh núi, thành công và vị thế mới đang chờ đón bạn.",
+"numbers": "21, 45, 87"
+},
+{
+"id": 16,
+"slug": "mo-thay-di-lac",
+"title": "Mơ thấy đi lạc đường",
+"category": "Giải mã giấc mơ",
+"meaning": "Phản ánh tâm lý phân vân trước nhiều lựa chọn. Lời khuyên là nên lắng nghe cố vấn từ những người đi trước.",
+"numbers": "16, 30, 66"
+},
+{
+"id": 17,
+"slug": "mo-thay-chua",
+"title": "Mơ thấy đi chùa",
+"category": "Giải mã giấc mơ",
+"meaning": "Điềm báo tâm hồn bình yên, gia đạo an lành. Những nguyện vọng tâm linh hoặc dự định cá nhân sẽ diễn ra suôn sẻ.",
+"numbers": "03, 27, 88"
+},
+{
+"id": 18,
+"slug": "mo-thay-chim-bay",
+"title": "Mơ thấy chim bay",
+"category": "Giải mã giấc mơ",
+"meaning": "Tin xa đưa lại. Báo hiệu bạn sắp nhận được cơ hội làm ăn hoặc tin tức tốt lành từ người thân ở xa.",
+"numbers": "28, 57, 91"
+},
+{
+"id": 19,
+"slug": "mo-thay-an-uong",
+"title": "Mơ thấy ăn uống",
+"category": "Giải mã giấc mơ",
+"meaning": "Tượng trưng cho cuộc sống no đủ, sung túc và các mối quan hệ xã hội mở rộng, gắn kết.",
+"numbers": "15, 48, 80"
+},
+{
+"id": 20,
+"slug": "mo-thay-nhan-vang",
+"title": "Mơ thấy nhẫn vàng",
+"category": "Giải mã giấc mơ",
+"meaning": "Biểu tượng của tình yêu bền vững và sự thịnh vượng. Báo hiệu đường tình duyên êm đẹp và may mắn về tài chính.",
+"numbers": "00, 50, 99"
+}
 ]
